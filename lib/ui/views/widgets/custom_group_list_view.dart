@@ -4,12 +4,12 @@ import 'package:flutter/scheduler.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-class UserScrollableContent<T extends GroupableModels> extends StatelessWidget {
+class CustomGroupListView<T extends GroupableModels> extends StatelessWidget {
   final List<T> suggestions;
   final Function(T) itemCreated;
   final Widget Function(T item, Key? key) itemBuilder;
 
-  const UserScrollableContent(
+  const CustomGroupListView(
       {Key? key,
       required this.suggestions,
       required this.itemCreated,

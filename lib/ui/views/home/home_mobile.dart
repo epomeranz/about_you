@@ -50,7 +50,7 @@ class _HomeMobile extends StatelessWidget {
         ),
         body: RefreshIndicator(
           onRefresh: viewModel.refreshData,
-          child: UserScrollableContent<UserSnippet>(
+          child: CustomGroupListView<UserSnippet>(
             suggestions: viewModel.suggestions,
             itemBuilder: (UserSnippet item, Key? key) =>
                 ContactSearchedItemWidget(item: item, key: key),
