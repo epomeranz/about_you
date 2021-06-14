@@ -57,13 +57,6 @@ class CustomGroupListView<T extends GroupableModels> extends StatelessWidget {
                 await itemCreated(element);
               });
               return itemBuilder(element, ValueKey(element.hashCode));
-              // if (element is UserSnippet)
-              //   return ContactSearchedItemWidget(
-              //     item: element,
-              //     key: ValueKey(element.hashCode),
-              //   );
-              // else
-              //   return Text("Listview Item not implemented, sorry :(");
             }));
   }
 }
