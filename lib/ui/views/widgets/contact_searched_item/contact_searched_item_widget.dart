@@ -32,8 +32,10 @@ class ContactSearchedItemWidget extends StatelessWidget {
                   ? PageLoadingErrorWidget(viewModel.error.toString())
                   : ScreenTypeLayout(
                       mobile: _ContactSearchedItemMobile(viewModel),
-                      desktop: _ContactSearchedItemDesktop(viewModel),
-                      tablet: _ContactSearchedItemTablet(viewModel),
+                      desktop: _ContactSearchedItemMobile(
+                          viewModel), //_ContactSearchedItemDesktop(viewModel),
+                      tablet: _ContactSearchedItemMobile(
+                          viewModel), //_ContactSearchedItemTablet(viewModel),
                     );
         });
   }

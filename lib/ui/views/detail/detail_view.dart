@@ -31,8 +31,10 @@ class DetailView extends StatelessWidget {
                   ? PageLoadingErrorWidget(viewModel.error.toString())
                   : ScreenTypeLayout(
                       mobile: _DetailMobile(viewModel),
-                      desktop: _DetailDesktop(viewModel),
-                      tablet: _DetailTablet(viewModel),
+                      desktop:
+                          _DetailMobile(viewModel), //_DetailDesktop(viewModel),
+                      tablet:
+                          _DetailMobile(viewModel), //_DetailTablet(viewModel),
                     );
         });
   }

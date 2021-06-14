@@ -7,6 +7,6 @@ class _HomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('_HomeDesktop');
+    return _HomeMobile(viewModel);
   }
 }

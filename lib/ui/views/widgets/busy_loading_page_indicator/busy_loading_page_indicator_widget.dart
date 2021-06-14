@@ -11,9 +11,11 @@ class BusyLoadingPageIndicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
-        mobile: _BusyLoadingPageIndicatorMobile(),
-        desktop: _BusyLoadingPageIndicatorDesktop(),
-        tablet: _BusyLoadingPageIndicatorTablet(),
+      mobile: _BusyLoadingPageIndicatorMobile(),
+      desktop:
+          _BusyLoadingPageIndicatorMobile(), //_BusyLoadingPageIndicatorDesktop(),
+      tablet:
+          _BusyLoadingPageIndicatorMobile(), //_BusyLoadingPageIndicatorTablet(),
     );
   }
 }

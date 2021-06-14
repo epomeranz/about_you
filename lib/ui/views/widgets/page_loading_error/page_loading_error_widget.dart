@@ -15,8 +15,10 @@ class PageLoadingErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
       mobile: _PageLoadingErrorMobile(message),
-      desktop: _PageLoadingErrorDesktop(message),
-      tablet: _PageLoadingErrorTablet(message),
+      desktop:
+          _PageLoadingErrorMobile(message), //_PageLoadingErrorDesktop(message),
+      tablet:
+          _PageLoadingErrorMobile(message), //_PageLoadingErrorTablet(message),
     );
   }
 }
