@@ -7,7 +7,9 @@ import 'package:about_you/core/services/db/user_snippets_db_service_interface.da
 import 'package:about_you/helpers/read_json.dart';
 
 class MockupUserSnippetDBService implements IUserSnippetDBService {
-  static const _jsonFileName = 'contacts_large';
+  //change this contant to switch between the provided sample file and
+  //a MUCH larger option.
+  static const _jsonFileName = 'contacts_large'; //contacts or contacts_large
 
   final log = getLogger('MockupUserSnippetDBService');
 
