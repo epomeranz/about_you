@@ -19,6 +19,7 @@ if you want to switch between the provided list of contacts and the large one yo
 
 future updates:
 The Stacked packages I use in the MVVM architecture does not provide a good locator service for instances that need parameters for their constructor. At the moment the view is declaring the VM instead of using dependency inversion. In future apps I would like to explore getx and replace the locator service with dependency injection
+Otherwise this archtecture it's a good approach to a SOLID architecture.
 
 ## Live Demo
 
