@@ -45,10 +45,21 @@ class _HomeMobile extends StatelessWidget {
         onSubmitted: viewModel.onQueryChanged,
         scrollPadding: EdgeInsets.zero,
         transition: CircularFloatingSearchBarTransition(spacing: 16),
-        builder: (context, _) => SearchExpandableBody(
+        builder: (context, _) => SearchExpandableBody<UserSnippet>(
           suggestions: viewModel.suggestions.take(4).toList(),
+          itemBuilder: (UserSnippet item, Key? key) =>
+              ContactSearchedItemWidget(item: item, key: key),
         ),
-        body: RefreshIndicator(
+        body: _buildBody(),
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        RefreshIndicator(
           onRefresh: viewModel.refreshData,
           child: CustomGroupListView<UserSnippet>(
             suggestions: viewModel.suggestions,
@@ -57,7 +68,7 @@ class _HomeMobile extends StatelessWidget {
             itemCreated: viewModel.handleItemCreated,
           ),
         ),
-      ),
+      ],
     );
   }
 }
