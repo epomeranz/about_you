@@ -1,6 +1,8 @@
 library home_view;
 
+import 'package:about_you/core/models/users/user_snippet.dart';
 import 'package:about_you/ui/views/home/widgets/user_scrollable_content.dart';
+import 'package:about_you/ui/views/widgets/contact_searched_item/contact_searched_item_widget.dart';
 import 'package:about_you/ui/views/widgets/page_loading_error/page_loading_error_widget.dart';
 import 'package:about_you/ui/views/widgets/search_expandable_body.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';

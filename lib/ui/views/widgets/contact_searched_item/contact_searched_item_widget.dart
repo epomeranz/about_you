@@ -14,9 +14,9 @@ part 'contact_searched_item_tablet.dart';
 part 'contact_searched_item_desktop.dart';
 
 class ContactSearchedItemWidget extends StatelessWidget {
-  final UserSnippet user;
+  final UserSnippet item;
 
-  const ContactSearchedItemWidget({Key? key, required this.user})
+  const ContactSearchedItemWidget({Key? key, required this.item})
       : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class ContactSearchedItemWidget extends StatelessWidget {
     return ViewModelBuilder<ContactSearchedItemViewModel>.reactive(
         disposeViewModel: true,
         createNewModelOnInsert: true,
-        viewModelBuilder: () => ContactSearchedItemViewModel(user),
+        viewModelBuilder: () => ContactSearchedItemViewModel(item),
         builder: (context, viewModel, child) {
           return viewModel.isBusy
               ? BusyLoadingPageIndicatorWidget()

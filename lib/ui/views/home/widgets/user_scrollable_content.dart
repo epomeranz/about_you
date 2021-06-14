@@ -1,16 +1,19 @@
-import 'package:about_you/core/models/users/user_snippet.dart';
-import 'package:about_you/ui/views/widgets/contact_searched_item/contact_searched_item_widget.dart';
+import 'package:about_you/core/models/base/groupable_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-class UserScrollableContent extends StatelessWidget {
-  final List<UserSnippet> suggestions;
-  final Function(UserSnippet) itemCreated;
+class UserScrollableContent<T extends GroupableModels> extends StatelessWidget {
+  final List<T> suggestions;
+  final Function(T) itemCreated;
+  final Widget Function(T item, Key? key) itemBuilder;
 
   const UserScrollableContent(
-      {Key? key, required this.suggestions, required this.itemCreated})
+      {Key? key,
+      required this.suggestions,
+      required this.itemCreated,
+      required this.itemBuilder})
       : super(key: key);
 
   @override
@@ -20,12 +23,13 @@ class UserScrollableContent extends StatelessWidget {
         transitionDuration: const Duration(milliseconds: 800),
         color: Theme.of(context).primaryColor.withAlpha(100),
         colorOnScroll: Theme.of(context).primaryColor.withAlpha(200),
-        body: GroupedListView<UserSnippet, String>(
+        body: GroupedListView<T, String>(
             // key: PageStorageKey('Main_LW'),
             elements: suggestions,
-            groupBy: (user) => user.groupByUpperName,
+            groupBy: (user) => user.listviewGroup,
             groupComparator: (value1, value2) => value2.compareTo(value1),
-            itemComparator: (item1, item2) => item1.name.compareTo(item2.name),
+            itemComparator: (item1, item2) =>
+                item1.listviewItemComparator(item1, item2),
             order: GroupedListOrder.DESC,
             sort: false,
             useStickyGroupSeparators: true,
@@ -52,10 +56,14 @@ class UserScrollableContent extends StatelessWidget {
                   ?.addPostFrameCallback((timeStamp) async {
                 await itemCreated(element);
               });
-              return ContactSearchedItemWidget(
-                user: element,
-                key: ValueKey(element.hashCode),
-              );
+              return itemBuilder(element, ValueKey(element.hashCode));
+              // if (element is UserSnippet)
+              //   return ContactSearchedItemWidget(
+              //     item: element,
+              //     key: ValueKey(element.hashCode),
+              //   );
+              // else
+              //   return Text("Listview Item not implemented, sorry :(");
             }));
   }
 }

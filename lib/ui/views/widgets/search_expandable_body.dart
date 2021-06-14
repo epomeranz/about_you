@@ -45,7 +45,7 @@ class SearchExpandableBody<T extends Object> extends StatelessWidget {
         key: ValueKey(item.hashCode),
         children: [
           (item is UserSnippet)
-              ? ContactSearchedItemWidget(user: item)
+              ? ContactSearchedItemWidget(item: item)
 
               ///TODO: Implement a base class for all models and user a
               ///generic widget that display info from the base class

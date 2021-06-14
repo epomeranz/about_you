@@ -1,3 +1,4 @@
+import 'package:about_you/core/models/base/groupable_models.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_snippet.g.dart';
@@ -14,7 +15,7 @@ enum UserStatus {
 //   at the end of the build command
 
 @JsonSerializable(explicitToJson: true)
-class UserSnippet {
+class UserSnippet implements GroupableModels<UserSnippet> {
   UserSnippet({
     required this.uid,
     required this.name,
@@ -63,7 +64,8 @@ class UserSnippet {
   @override
   int get hashCode => super.hashCode + uid.hashCode + name.hashCode;
 
-  String get groupByUpperName {
+  @override
+  String get listviewGroup {
     String nameAux = this.name.trimLeft().toUpperCase();
     if (nameAux.isEmpty) return "-";
     //if it starts with A to Z
@@ -71,5 +73,10 @@ class UserSnippet {
       return nameAux.substring(0, 1);
     else
       return "-";
+  }
+
+  @override
+  int listviewItemComparator(UserSnippet item1, UserSnippet item2) {
+    return item1.name.compareTo(item2.name);
   }
 }
