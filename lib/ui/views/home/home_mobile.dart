@@ -31,7 +31,7 @@ class _HomeMobile extends StatelessWidget {
         controller: viewModel.searchBarController,
         clearQueryOnClose: false,
         closeOnBackdropTap: true,
-        hint: 'Search...',
+        hint: S.of(context).search_hint,
         iconColor: Colors.grey,
         transitionDuration: const Duration(milliseconds: 800),
         transitionCurve: Curves.easeInOutCubic,

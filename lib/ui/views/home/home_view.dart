@@ -1,6 +1,7 @@
 library home_view;
 
 import 'package:about_you/core/models/users/user_snippet.dart';
+import 'package:about_you/generated/l10n.dart';
 import 'package:about_you/ui/views/home/widgets/home_view_footer.dart';
 import 'package:about_you/ui/views/home/widgets/home_view_header.dart';
 import 'package:about_you/ui/views/widgets/custom_group_list_view.dart';
