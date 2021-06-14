@@ -17,6 +17,9 @@ This project is a small code test for about you.
 if you want to switch between the provided list of contacts and the large one you can do so [here (direct github link)](https://github.com/epomeranz/about_you/blob/882f5c03a086f1ea89bdf7239aa303f6ac3cae89/lib/core/services/db/user_snippets_db_Service_mockup.dart#L10)
 * lib/core/services/db/user_snippets_db_Service_mockup.dart#L10
 
+future updates:
+The Stacked packages I use in the MVVM architecture does not provide a good locator service for instances that need parameters for their constructor. At the moment the view is declaring the VM instead of using dependency inversion. In future apps I would like to explore getx and replace the locator service with dependency injection
+
 ## Live Demo
 
 You can see the app running in web at
