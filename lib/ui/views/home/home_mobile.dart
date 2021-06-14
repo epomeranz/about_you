@@ -24,8 +24,8 @@ class _HomeMobile extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor.withAlpha(250),
-      resizeToAvoidBottomInset: false,
+      backgroundColor: Theme.of(context).backgroundColor, //.withAlpha(200),
+      resizeToAvoidBottomInset: true,
       body: FloatingSearchBar(
         automaticallyImplyBackButton: false,
         controller: viewModel.searchBarController,
@@ -56,19 +56,35 @@ class _HomeMobile extends StatelessWidget {
   }
 
   Widget _buildBody() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        RefreshIndicator(
-          onRefresh: viewModel.refreshData,
-          child: CustomGroupListView<UserSnippet>(
-            suggestions: viewModel.suggestions,
-            itemBuilder: (UserSnippet item, Key? key) =>
-                ContactSearchedItemWidget(item: item, key: key),
-            itemCreated: viewModel.handleItemCreated,
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 90, 0, 10),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            flex: 1,
+            child: HomeViewHeader(),
           ),
-        ),
-      ],
+          SizedBox(height: 5),
+          Expanded(
+            flex: 15,
+            child: RefreshIndicator(
+              onRefresh: viewModel.refreshData,
+              child: CustomGroupListView<UserSnippet>(
+                suggestions: viewModel.suggestions,
+                itemBuilder: (UserSnippet item, Key? key) =>
+                    ContactSearchedItemWidget(item: item, key: key),
+                itemCreated: viewModel.handleItemCreated,
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Expanded(
+            flex: 1,
+            child: HomeViewFooter(),
+          ),
+        ],
+      ),
     );
   }
 }
