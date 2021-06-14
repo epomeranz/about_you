@@ -21,6 +21,17 @@ future updates:
 The Stacked packages I use in the MVVM architecture does not provide a good locator service for instances that need parameters for their constructor. At the moment the view is declaring the VM instead of using dependency inversion. In future apps I would like to explore getx and replace the locator service with dependency injection
 Otherwise this archtecture it's a good approach to a SOLID architecture.
 
+## Features included in this demo:
+* SOLID priciples architecture
+* pagination in list view
+* Support for localization
+* mockup services
+* MVVM Architecture
+* light Unit Testing of one View Model
+* published to web demo (see link below)
+* Pretty aweful design (I'm not a good designer :p)
+* etc.
+
 ## Live Demo
 
 You can see the app running in web at
